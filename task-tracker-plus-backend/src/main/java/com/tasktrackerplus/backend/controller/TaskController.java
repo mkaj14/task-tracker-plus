@@ -1,7 +1,7 @@
 package com.tasktrackerplus.backend.controller;
 
 import com.tasktrackerplus.backend.model.Task;
-import com.tasktrackerplus.backend.repository.TaskRepository;
+import com.tasktrackerplus.backend.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,49 +12,32 @@ import java.util.List;
 @RequestMapping("/api/tasks")
 public class TaskController {
 
-    private final TaskRepository taskRepository;
+    private final TaskService taskService;
 
-    public TaskController(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
     }
 
     // GET /api/tasks
     @GetMapping
     public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+        return taskService.getAllTasks();
     }
 
     // POST /api/tasks
     @PostMapping
     public Task createTask(@Valid @RequestBody Task task) {
-        // ensure new tasks don't accidentally overwrite an existing one
-        task.setId(null);
-        return taskRepository.save(task);
+        return taskService.createTask(task);
     }
 
     // PUT /api/tasks/{id}
     @PutMapping("/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @Valid @RequestBody Task updatedTask) {
-        return taskRepository.findById(id)
-                .map(existing -> {
-                    existing.setTitle(updatedTask.getTitle());
-                    existing.setDescription(updatedTask.getDescription());
-                    existing.setPriority(updatedTask.getPriority());
-                    existing.setCompleted(updatedTask.isCompleted());
-                    existing.setDueDate(updatedTask.getDueDate());
-                    Task saved = taskRepository.save(existing);
-                    return ResponseEntity.ok(saved);
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return taskService.updateTask(id, updatedTask);
     }
 
     // DELETE /api/tasks/{id}
-    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
-        if (!taskRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        taskRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return taskService.deleteTask(id);
     }
 }
