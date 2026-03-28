@@ -1,0 +1,9 @@
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/TaskTrackerPlusBackendApplication.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/config/CorsConfig.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/config/DataLoader.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/controller/HealthController.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/controller/TaskController.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/model/Priority.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/model/Task.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/repository/TaskRepository.java
+/Users/matinkajbaf/Desktop/task-tracker-plus/task-tracker-plus-backend/src/main/java/com/tasktrackerplus/backend/service/TaskService.java
