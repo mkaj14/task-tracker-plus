@@ -1,0 +1,15 @@
+<h1>Task Tracker Plus</h1>
+
+<ul>
+  <li *ngFor="let task of tasks">
+    <strong>{{ task.title }}</strong>
+    <span> ({{ task.priority }})</span>
+
+    <p>{{ task.description }}</p>
+
+    <p *ngIf="task.completed">✅ Completed</p>
+    <p *ngIf="!task.completed">❌ Not Completed</p>
+
+    <hr />
+  </li>
+</ul>
