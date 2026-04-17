@@ -30,13 +30,12 @@ public class Task {
     @Column(nullable = false)
     private boolean completed = false;
 
-    // Optional
     private LocalDate dueDate;
+
+    private String category;
 
     public Task() {
     }
-
-    // --- Getters / Setters ---
 
     public Long getId() {
         return id;
@@ -84,5 +83,13 @@ public class Task {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
